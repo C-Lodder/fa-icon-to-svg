@@ -14,10 +14,10 @@ async function generateIconsList() {
   const faVersion = pkg.dependencies['@fortawesome/fontawesome-free'].replace(/\^/g, '')
 
   https.get(`https://raw.githubusercontent.com/FortAwesome/Font-Awesome/${faVersion}/metadata/icons.json`, (res) => {
-    let body = '';
+    let body = ''
 
     res.on('data', (chunk) => {
-      body += chunk;
+      body += chunk
     })
 
     res.on('end', () => {
