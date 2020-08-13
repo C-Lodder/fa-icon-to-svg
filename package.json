@@ -1,0 +1,14 @@
+{
+  "name": "fa-icon-to-svg",
+  "version": "1.0.0",
+  "description": "Search for your icons, and copy the SVG code",
+  "author": "Charlie Lodder",
+  "license": "MIT",
+  "repository": "https://github.com/C-Lodder/fa-icon-to-svg",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0"
+  }
+}
