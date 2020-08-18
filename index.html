@@ -129,7 +129,7 @@
 	<main id="wrapper" class="icons"></main>
 
 	<kp-modal id="modal">
-		<div slot="modal-title">SVG Code</div>
+		<div slot="modal-title" id="modal-title">SVG Code</div>
 		<pre slot="modal-content" id="modal-slot"></pre>
 		<div slot="modal-footer">
 			<button name="button" id="copy">Copy to clipboard</button>
@@ -152,6 +152,7 @@
 			const wrapper = document.getElementById('wrapper')
 			icons.forEach((icon) => {
 				const classes = icon.split(' ')
+				const removePrefix = classes[1].replace(/fa-/g, '')
 
 				const link = document.createElement('a')
 				link.href = '#'
@@ -159,6 +160,7 @@
 				link.addEventListener('click', (e) => {
 					e.preventDefault()
 					document.getElementById('modal').show()
+					document.getElementById('modal-title').innerText = `SVG Code - ${removePrefix}`
 					const svg = e.currentTarget.querySelector('svg').cloneNode(true)
 					svg.removeAttribute('data-fa-i2svg')
 					svg.removeAttribute('data-prefix')
@@ -175,7 +177,7 @@
 				span.classList.add(...classes)
 
 				const text = document.createElement('span')
-				text.innerText = classes[1].replace(/fa-/g, '')
+				text.innerText = removePrefix
 
 				link.appendChild(span)
 				link.appendChild(text)
